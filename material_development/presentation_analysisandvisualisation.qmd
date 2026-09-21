@@ -1,0 +1,10 @@
+---
+title: "Data Analysis and Visualisation"
+subtitle: "Sessions 4 & 5"
+author: "Thomas Wise"
+format: 
+  revealjs:
+    smaller: true
+    theme: dark
+editor: visual
+---
