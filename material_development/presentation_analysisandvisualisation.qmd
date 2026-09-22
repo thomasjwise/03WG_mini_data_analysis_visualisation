@@ -8,3 +8,349 @@ format:
     theme: dark
 editor: visual
 ---
+
+## Session Objectives (Session 4)
+
+- Understand how to conduct simple analysis 
+- Understand how to use the `apply` family of functions 
+- Understand how to apply Foundational statistical tests
+
+## Today's Plan (Session 4)
+
+- Initial Discussion
+- Section 0: Session Setup
+- Section 1: Conducting Simple Analysis 
+  - Part 1.1: Applying analytic functions 
+  - Part 1.2: Using the `apply` family of functions 
+- Section 2: Conducting Foundational Statistical Tests 
+  - Part 2.1: Using Correlations 
+  - Part 2.2: Using Regressions 
+  - Part 2.3: Other Statistical Tests 
+
+## Initial Discussion 
+
+- Do you have any questions or follow up from last weeks session? 
+
+- Are there any statistical tests, analysis techniques you would like to cover today or next week? 
+- Are there any visualisation you'd like to learn how to create? 
+
+## Section 0: Session Setup
+
+- Was everyone able to access the data?
+- Can everyone access the materials, RStudio etc?
+- Can everyone open up the script labelled *worksheet_dataanalysis_session4.R*?
+
+# Section 1: Conducting Simple Analysis
+
+## Part 1.1: Applying analytic functions 
+
+In previous sessions we have already covered one method:
+
+- `summary()`
+
+But sometimes you may want to get specific information for calculations:
+
+- Minimum and Maximum: `min()` and `max()`
+- Mean - `mean()`
+- Median - `median()`
+- Standard Deviation - `sd()`
+- Quantile - `quantile()`
+
+## Part 1.1: Applying analytic functions 
+
+You can compile you own grouped statistics, through using the `summarise()` function
+
+- This allows you to utilise the `group_by()` function, before creating a descriptive statistic table from scratch.
+
+```{r}
+#| echo: TRUE
+#| eval: FALSE
+
+# Example 
+
+data %>% 
+  group_by(val) %>% 
+  summarise(mean = mean(x),
+            min = min(x),
+            max = max(x))
+```
+
+## Part 1.2: Using the `apply` family of functions
+
+`apply()` is a family of functions which allows functions to be applied to the rows or columns of a data frame / matrix
+
+This includes:
+
+| Function   | Use on                    | Parameters             |
+|------------|---------------------------|------------------------|
+| `apply()`  | matrix or dataframe       | x, margin, function    |
+| `lapply()` | list                      | x, function            |
+| `sapply()` | list, vector or dataframe | x, function            |
+| `tapply()` | dataframe                 | x, index, function     |
+| `mapply()` | multiple lists or vectors | listX, listY, function |
+
+# Section 2: Conducting Foundational Statistical Tests 
+
+## Part 2.1: Using Correlations 
+
+Two types of functions:
+
+- `cor(x, y, method)` for the correlation coefficient
+- `cor.test(x, y, method)` as a test of association between a paired sample
+
+Method types:
+
+- `pearson`
+- `kendall`
+- `spearman`
+
+## Part 2.2: Using Regressions 
+
+Simplest regression function in R is:
+
+- `lm(formula, data)`
+- `glm(formula, family = gaussian, data)`
+
+More complex functions exist, but this moves into Machine Learning territory!
+
+- Check out `glmnet()`
+
+## Part 2.2: Interpretation of Regressions 
+
+Key interpretations:
+
+- *Coefficients*: Provide information about the variables, such as significance\
+- *Residual Standard Error*: Used as a measure of fit between model and data set
+- *Multiple/Adjusted R-Squared*: How well does the model explain variance in the observed data
+- *F-statistic*: Used to test the significance of coefficients
+- *p-value*: NHST significance level
+
+## Part 2.3: Other Statistical Tests 
+
+- t-tests: `t.test()`
+- ANOVA: `aov()`
+- MANOVA: `manova()`
+- Wilcox-test: `wilcox.test()`
+- Chi-square test: `chisq.test()`
+
+And Many many more!! 
+
+## Resources and Further Reading 
+
+- [R for Data Science, Wickham, Cetinkaya-Rundel and Grolemund](<https://r4ds.hadley.nz/>)
+- [Modern Statistics with R, Mans Thulin](<https://www.modernstatisticswithr.com/>)
+- [Learning Statistics with R - Danielle Navarro](https://learningstatisticswithr.com/lsr-0.6.pdf)
+- [Introduction to Statistical Learning - James, Witten, Hastie & Tibshirani](https://www.statlearning.com/)
+
+# Session 5
+
+## Session Objectives (Session 5)
+
+- Understand some foundational principles of data visualisation
+- Understand the syntax of visualisations using `ggplot2`
+- Understand how to create visualisations using `ggplot2`
+
+## Today's Plan (Session 5)
+
+- Initial Discussion
+- Section 0: Session Setup
+- Section 1: Foundational Data Visualisation Theory  
+- Part 1.1: Visualisation Best Practice 
+- Section 2: Using `ggplot2` to create visualisations  
+- Part 2.1: `ggplot2` syntax 
+- Part 2.2: Developing Visualisations  
+
+## Data Visualisation - Reference Materials / Guidance
+
+- [ggplot2 Tidyverse overview](https://ggplot2.tidyverse.org/)
+
+- [ggplot2 - Full Literature, 3rd Edition](https://ggplot2-book.org/)
+
+- [R4DS - Section on Data Visualisation](https://r4ds.had.co.nz/data-visualisation.html)
+
+## Section 0: Session Setup
+
+- Was everyone able to access the data?
+- Can everyone access the materials, RStudio etc?
+- Can everyone open up the script labelled *worksheet_datavisualisation_session4.R*?
+
+# Section 1: Foundational Data Visualisation Theory 
+
+## Part 1.1: Visualisation Best Practice
+
+The analysis function published guidance on accessible plots:
+
+- [Data Visualisation: Charts](https://analysisfunction.civilservice.gov.uk/policy-store/data-visualisation-charts/)
+- [Making analytical Publications accessible](https://analysisfunction.civilservice.gov.uk/policy-store/making-analytical-publications-accessible/#section-4)
+
+These guidelines are complemented by and also further developed by:
+
+- Gestalt Theory
+- E. Tufte Best Practice
+
+## Part 1.1: Analytical Function Guidance
+
+As a public sector service, we must meet Accessibility Legislation guidance (2020).
+
+Although this guidance is aimed towards publications rather than internal documentation, following these internally is a good practice and reduces your later processing time to ensure it meets accessibility standards.
+
+Throughout today's session we will refer back to Analytical functions guidance, so help guide the session
+
+## Part 1.1: Gestalt Theory
+
+Emerging from a school of psychology, Gestalt theory states that we perceive objects as a whole, rather than a sum of its parts.
+
+This field highlights many cognitive shortcuts we can use in our data visualizations
+
+- Enclosure: Boundaries demonstrate grouping
+- Similarity: Items which share features (colour, shape, size) are seen as a group
+- Continuity: Aligned or flowing objects are seen as a group
+- Connection: Connected objects, regardless of attribute are seen as grouped
+- Closure: Incomplete boundaries are auto-completed
+- Proximity: Objects close together are perceived as similar
+- Symmetry: Symmetric objects are pleasing, asymetric ones stand out
+
+## Part 1.1: E. Tufte Best Practice
+
+E. Tufte, American Statistician, Political Scientist and Computer Science Emeritus Professor highlights 6 core principles of best practice:
+
+- Comparisons: Show data by comparisons, depict contrasts and differences
+- Causality: Demonstrate the influence or impact of variables
+- Multivariate: Combine data where appropriate to help interpret complex narratives
+- Integration: Incorporate various modes of information to further highlight evidence
+- Documentation: For credibility, include attribution, detailed titles and measurements
+- Context: Describe or depict the before and after state
+
+## Part 1.1: E. Tufte Best Practice
+
+These can be applied through the following methods:
+
+- Graphical Integrity
+  - Be sure that the graph is telling the truth and is representative of such
+- Data-Ink Ratio
+  - Maximize the data-ink ratio, and erasing redundant data/non-data ink
+- Limiting Chart Junk
+  - Removing or limiting non-data specific "junk"
+- Data Density
+  - Have an appropriate density of data and information in your graphic space
+- Small Multiples
+  - Use compressed, matching, small style graphs to visualise large quantities of information
+
+# Section 2: Using `ggplot()` to create visualisations
+
+## Part 2.1: `ggplot()` syntax: Anatomy 101
+
+Fundamental Elements:
+
+- `ggplot()` - specifies that a graph will be produced
+- `geom_XX()` - specifies the type of graph
+
+Key Parameters:
+
+- `data =` - specify your data
+- `mapping = aes(x, y)` - specify what you'd like to map onto the graph
+- `x`, `y` - specify the x/y axis respectively
+- `colour` - specify the colour
+- `alpha` - specify the transparency
+- `size` - specify the size of the points
+
+## Part 2.1: Example Plot
+
+```{r}
+#| warnings: FALSE
+#| include: FALSE
+library(tidyverse)
+
+```
+
+```{r}
+#| echo: TRUE
+
+# Example 
+
+ggplot(data = diamonds) + 
+  geom_point(mapping = aes(x = carat, y = price))
+```
+
+## Part 2.1: Common Visualisation Types 
+
+- Scatter plots: `geom_point()`
+- Jittered Scatter plots: `geom_jitter()`
+- Bar Charts: `geom_col()` or `geom_bar()`
+- Histogram: `geom_histogram()`
+- Density plot: `geom_density()`
+
+## Part 2.2: Visualisations are like Onions....
+
+- Visualisations can be built up, using layers
+
+- Each layer is added in order, meaning it is possible to build up a visualisation
+
+- This can be achieved by adding `+`, and adding another layer of `geom_()` as they are standardised.
+
+## Part 2.2: .... they have layers
+
+However:
+
+- Each layer automatically inherits the information provided in the initial `ggplot()` call, so be sure to specify information by layer if unique and not shared
+- Each layer is added in order, so setting `alpha` (transparency) is important!
+
+## Part 2.2: Specifying Axis's
+
+Simple shortcuts:
+
+- `lims(x = c(min, max), y = c(min, max))`
+
+Advanced used:
+
+- `scale_x_continuous()` / `scale_y_continuous()`
+- `scale_x_sqrt()` / `scale_y_sqrt()`
+- `scale_x_log10()` / `scale_y_log10()`
+
+With these having the internal arguments:
+
+- breaks, minor_breaks, n.breaks
+- labels, limits
+
+## Part 2.2: Specifying Labels
+
+You can simply specify axis labels using the `labs()` function with the internal arguments:
+
+- `title =` for the plot title
+- `subtitle =` for the plot subtitle
+- `caption =` for the plot caption
+- `x` / `y` for x or y axises respectively
+
+Advanced labels can be given through:
+
+- `annotate()` function combined with geom `text` or `rect`
+- `geom_vline()` for a vertical line
+- `geom_hline()` for a horizontal line
+
+## Part 2.2: Using preset themes
+
+- `theme_bw()`
+- `theme_classic()`
+- `theme_dark()`
+- `theme_light()`
+- `theme_minimal()`
+- `theme_void()`
+
+## Part 2.2: Using specifying manual themes
+
+By using the `theme()` function as a foundation, you can specify almost every element of a visualisation plot.
+
+But remember to call these functions when using specific elements
+
+- Line elements: `element_line()`
+- Rectangular/area elements: `element_rect()`
+- Text elements: `element_text()`
+
+You can use these to rotate axis labels too! For example:
+
+- `theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))`
+
+# Reflections 
+
+# Feedback
+
