@@ -57,19 +57,55 @@ data |>
 
 ## Part 1.2: Using the `apply()` family of functions
 
+# One of the most effective uses of the `apply()` family of functions, is the manipulation of data. 
+# Lets first load in the data again: 
+  data_new <- read.csv(file = "data/welshgov_data.csv")
+
+# We can still do the first stages again:
+  data_new <- data_new |>
+    select(!Notes) |>
+    select(!Data.description) |>
+    rename(Number.of.activities = Data.values)
+
+# Exercise 1.2a: Using the sapply function 'sapply()', isolate the columns with the type character. 
+# Before assigning it to a variable.
+# Hint: You can use the is.character parameter for this. 
+  
+?? <- sapply(data, ??)
+
+# Exercise 1.2b: Using the lapply function 'lapply()', set all character columns to factors
+# Making sure to reassign them to the columns correctly. 
+# Hint: You can use the as.factor parameter for this conversion.
+  
+data[??] <- lapply(data[??], ??)
+
+# Exercise 1.2c: Using summary(), evaluation the dataset in question again. 
+
+summary(data)
 
 
 ## Section 2: Conduction Foundational Statistical Tests 
-
-  # As our data does not contain two numeric variables, lets run some data manipulation. 
-# Exercise 2.0a: Split the data using the methods learnt, split the dataset by Academic Year. 
-
-# Exercise 2.0b: Taking two of the years, join them so we can compare the first year, to the second. 
-
-## Part 2.1: Correlations 
+# As our data does not contain 2 numeric variables, we will skip straight to regressions. 
  
-## Part 2.2: Regressions
+## Part 2.1: Regressions
+  # For our regressions, we will want to predict the number of activities based on any number of other variables 
+# Exercise 2.1a: Create a simple linear model (using `lm()`) to predict: 
+  # Number of Activities by Age Group (formula = Number.of.activities ~ Age.group)
+  # Ensure to assign this to a variable for later use
 
-## Part 2.3 Other Statistical Tests 
+lm_model_1 <- lm(data = ??, formula = ?? ~ ?? + ??)
 
-## 
+# Exercise 2.1b: Run a summary call on this created linear model, to understand the coefficients, significance level and more! 
+
+# Exercise 2.1c: Using the general linear model function (using `glm()`) to predict: 
+  # Number of activities by Medium of Delivery and Mode of Programme 
+  # I would recommend you set the family value to gaussian, however please experiment to see the difference! 
+
+# Exercise 2.1d: Run a summary call on this created generalised linear model. 
+
+
+## Part 2.2: Extension - Other Statistical Tests 
+  # As an extension, look to apply any other statistical tests to the data. 
+
+  # To examine what is needed and other information on the tests, either use: 
+  # The Help Pane (often bottom right) or prefix the function with ?
