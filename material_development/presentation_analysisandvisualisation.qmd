@@ -56,6 +56,8 @@ But sometimes you may want to get specific information for calculations:
 - Standard Deviation - `sd()`
 - Quantile - `quantile()`
 
+# Worksheet, Exercise 1.1a-1.1b
+
 ## Part 1.1: Applying analytic functions 
 
 You can compile you own grouped statistics, through using the `summarise()` function
@@ -74,6 +76,8 @@ data %>%
             min = min(x),
             max = max(x))
 ```
+
+# Worksheet, Exercise 1.1c-1.1e
 
 ## Part 1.2: Using the `apply` family of functions
 
