@@ -11,28 +11,29 @@ editor: visual
 
 ## Session Objectives (Session 4)
 
-- Understand how to conduct simple analysis 
-- Understand how to use the `apply` family of functions 
+- Understand how to conduct simple analysis
+- Understand how to use the `apply` family of functions
 - Understand how to apply Foundational statistical tests
 
 ## Today's Plan (Session 4)
 
 - Initial Discussion
 - Section 0: Session Setup
-- Section 1: Conducting Simple Analysis 
-  - Part 1.1: Applying analytic functions 
-  - Part 1.2: Using the `apply` family of functions 
-- Section 2: Conducting Foundational Statistical Tests 
-  - Part 2.1: Using Correlations 
-  - Part 2.2: Using Regressions 
-  - Part 2.3: Other Statistical Tests 
+- Section 1: Conducting Simple Analysis
+  - Part 1.1: Applying analytic functions
+  - Part 1.2: Using the `apply` family of functions
+- Section 2: Conducting Foundational Statistical Tests
+  - Part 2.1: Using Correlations
+  - Part 2.2: Using Regressions
+  - Part 2.3: Other Statistical Tests
 
-## Initial Discussion 
+## Initial Discussion
 
-- Do you have any questions or follow up from last weeks session? 
+- Do you have any questions or follow up from last weeks session?
 
-- Are there any statistical tests, analysis techniques you would like to cover today or next week? 
-- Are there any visualisation you'd like to learn how to create? 
+- Are there any statistical tests, analysis techniques you would like to cover today or next week?
+
+- Are there any visualisation you'd like to learn how to create?
 
 ## Section 0: Session Setup
 
@@ -42,7 +43,7 @@ editor: visual
 
 # Section 1: Conducting Simple Analysis
 
-## Part 1.1: Applying analytic functions 
+## Part 1.1: Applying analytic functions
 
 In previous sessions we have already covered one method:
 
@@ -58,7 +59,7 @@ But sometimes you may want to get specific information for calculations:
 
 # Worksheet, Exercise 1.1a-1.1b
 
-## Part 1.1: Applying analytic functions 
+## Part 1.1: Applying analytic functions
 
 You can compile you own grouped statistics, through using the `summarise()` function
 
@@ -93,9 +94,9 @@ This includes:
 | `tapply()` | dataframe                 | x, index, function     |
 | `mapply()` | multiple lists or vectors | listX, listY, function |
 
-# Section 2: Conducting Foundational Statistical Tests 
+# Section 2: Conducting Foundational Statistical Tests
 
-## Part 2.1: Using Correlations 
+## Part 2.1: Using Correlations
 
 Two types of functions:
 
@@ -108,7 +109,7 @@ Method types:
 - `kendall`
 - `spearman`
 
-## Part 2.2: Using Regressions 
+## Part 2.2: Using Regressions
 
 Simplest regression function in R is:
 
@@ -119,7 +120,7 @@ More complex functions exist, but this moves into Machine Learning territory!
 
 - Check out `glmnet()`
 
-## Part 2.2: Interpretation of Regressions 
+## Part 2.2: Interpretation of Regressions
 
 Key interpretations:
 
@@ -129,7 +130,7 @@ Key interpretations:
 - *F-statistic*: Used to test the significance of coefficients
 - *p-value*: NHST significance level
 
-## Part 2.3: Other Statistical Tests 
+## Part 2.3: Other Statistical Tests
 
 - t-tests: `t.test()`
 - ANOVA: `aov()`
@@ -137,12 +138,12 @@ Key interpretations:
 - Wilcox-test: `wilcox.test()`
 - Chi-square test: `chisq.test()`
 
-And Many many more!! 
+And Many many more!!
 
-## Resources and Further Reading 
+## Resources and Further Reading
 
-- [R for Data Science, Wickham, Cetinkaya-Rundel and Grolemund](<https://r4ds.hadley.nz/>)
-- [Modern Statistics with R, Mans Thulin](<https://www.modernstatisticswithr.com/>)
+- [R for Data Science, Wickham, Cetinkaya-Rundel and Grolemund](https://r4ds.hadley.nz/)
+- [Modern Statistics with R, Mans Thulin](https://www.modernstatisticswithr.com/)
 - [Learning Statistics with R - Danielle Navarro](https://learningstatisticswithr.com/lsr-0.6.pdf)
 - [Introduction to Statistical Learning - James, Witten, Hastie & Tibshirani](https://www.statlearning.com/)
 
@@ -158,11 +159,11 @@ And Many many more!!
 
 - Initial Discussion
 - Section 0: Session Setup
-- Section 1: Foundational Data Visualisation Theory  
-- Part 1.1: Visualisation Best Practice 
-- Section 2: Using `ggplot2` to create visualisations  
-- Part 2.1: `ggplot2` syntax 
-- Part 2.2: Developing Visualisations  
+- Section 1: Foundational Data Visualisation Theory\
+- Part 1.1: Visualisation Best Practice
+- Section 2: Using `ggplot2` to create visualisations\
+- Part 2.1: `ggplot2` syntax
+- Part 2.2: Developing Visualisations
 
 ## Data Visualisation - Reference Materials / Guidance
 
@@ -178,7 +179,7 @@ And Many many more!!
 - Can everyone access the materials, RStudio etc?
 - Can everyone open up the script labelled *worksheet_datavisualisation_session4.R*?
 
-# Section 1: Foundational Data Visualisation Theory 
+# Section 1: Foundational Data Visualisation Theory
 
 ## Part 1.1: Visualisation Best Practice
 
@@ -276,7 +277,7 @@ ggplot(data = diamonds) +
   geom_point(mapping = aes(x = carat, y = price))
 ```
 
-## Part 2.1: Common Visualisation Types 
+## Part 2.1: Common Visualisation Types
 
 - Scatter plots: `geom_point()`
 - Jittered Scatter plots: `geom_jitter()`
@@ -354,7 +355,6 @@ You can use these to rotate axis labels too! For example:
 
 - `theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))`
 
-# Reflections 
+# Reflections
 
 # Feedback
-
